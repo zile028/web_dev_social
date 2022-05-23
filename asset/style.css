@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+}
+
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.user-info {
+    padding: 0;
+}
+
+.user-info .row {
+    gap: 20px;
+}
+
+.user-info div {
+
+    flex: 1;
+}
+
+.user-info p {
+    margin: 10px 0;
+}
+
+.user-info p span {
+    margin-right: 10px;
+    font-weight: 600;
+}
