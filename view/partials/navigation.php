@@ -14,6 +14,9 @@
                     <a class="nav-link" href="users.php">Users</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="posts.php">Posts</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="my_account.php">My Account</a>
                 </li>
                 <li class="nav-item">

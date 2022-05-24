@@ -1,68 +1,21 @@
-<?php require "partials/head.php" ?>
-<?php require "partials/navigation.php" ?>
-<?php require "partials/title_page.php" ?>
-
-    <div class="container py-5">
-        <div class="row m-0 justify-content-between">
-            <div class="col-md-3">
-                <img class="img-fluid" src="asset/img/user.png" alt="">
-            </div>
-
-            <div class="user-info col-md-8">
-                <div class="row">
-                    <div class="col-md-6 border-bottom">
-                        <p><span>First name:</span>Dejan</p>
-                    </div>
-                    <div class="col-md-6 border-bottom">
-                        <p><span>Last name:</span>Zivkovic</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 border-bottom">
-                        <p><span>Date of birth:</span>16.09.1984.</p>
-                    </div>
-                    <div class="col-md-6 border-bottom">
-                        <p><span>Gender:</span>Male</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 border-bottom">
-                        <p><span>E-mail:</span>zile028@gmail.com</p>
-                    </div>
-                    <div class="col-md-6 border-bottom">
-                        <p><span>Role:</span>admin</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 border-bottom">
-                        <p><span>Created at:</span>23.05.2022.</p>
-                    </div>
-                    <div class="col-md-6 border-bottom">
-                        <p><span>Last login:</span>23.05.2022. 23:52</p>
-                    </div>
-                </div>
-                <div class="row justify-content-around mt-3">
-                    <a href="edit_account.php" class="col-md-3 btn btn-primary">Edit</a>
-                    <a href="delete_account.php" class="col-md-3 btn btn-danger">Delete</a>
-                </div>
-            </div>
+<?php require "view/partials/head.php" ?>
+<?php require "view/partials/navigation.php" ?>
+<?php require "view/partials/title_page.php" ?>
+    <div class="container">
+        <div class="text-center mb-4">
+            <a href="add_post.php" class="btn btn-primary">Add post</a>
         </div>
-
-        <div class="row mt-3 no-gutters">
+        <div class="row">
             <div class="col-12">
-                <?php for ($i = 0; $i < 1; $i++): ?>
+                <?php for ($i = 0; $i < 3; $i++): ?>
                     <div class="post card bg-light text-dark mb-2">
                         <div class="card-header d-flex justify-content-between">
                             <div>
                                 <h4>Title post</h4>
                             </div>
                             <div class="d-flex flex-column align-items-end">
+                                <span><a class="badge bg-success" href="posts.php?user_id=1">Dejan Zivkovic</a></span>
                                 <span>24.05.2022.</span>
-                                <select name="" id="">
-                                    <option value="public">Public</option>
-                                    <option value="private">Private</option>
-                                    <option value="friends">Friends</option>
-                                </select>
                             </div>
                         </div>
                         <div class="card-body row">
@@ -93,6 +46,7 @@
                                     <span class="badge bg-info">1</span>
                                 </button>
                             </div>
+
                         </div>
                     </div>
 
@@ -102,12 +56,8 @@
                                 <h4>Title post</h4>
                             </div>
                             <div class="d-flex flex-column align-items-end">
+                                <span><a class="badge bg-success" href="posts.php?user_id=1">Dejan Zivkovic</a></span>
                                 <span>24.05.2022.</span>
-                                <select name="" id="">
-                                    <option value="public">Public</option>
-                                    <option value="private">Private</option>
-                                    <option value="friends">Friends</option>
-                                </select>
                             </div>
                         </div>
                         <div class="card-body row">
@@ -139,6 +89,4 @@
             </div>
         </div>
     </div>
-
-
-<?php require "partials/footer.php" ?>
+<?php require "view/partials/footer.php" ?>
