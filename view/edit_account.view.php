@@ -38,7 +38,6 @@
                 <input class="form-control mb-3" type="email" name="email" placeholder="E-mail">
             </div>
         </div>
-
         <div class="text-center">
             <button class="btn btn-primary px-5" name="register" type="submit">Save changes</button>
         </div>
