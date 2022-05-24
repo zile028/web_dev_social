@@ -43,3 +43,14 @@ a {
     margin-right: 10px;
     font-weight: 600;
 }
+
+.bi-hand-thumbs-up-fill,
+.bi-hand-thumbs-down-fill {
+    color: #ffffff;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}

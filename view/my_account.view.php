@@ -84,14 +84,16 @@
                         <div class="card-footer d-flex justify-content-between align-items-center">
                             <a href="single_post.php?post_id=1" class="badge bg-info">Read more</a>
                             <div>
-                                <button class="btn btn-sm btn-primary" data-post-id="1">
+                                <div class="btn btn-sm btn-primary" data-post-id="1">
                                     <i class="bi bi-hand-thumbs-up-fill"></i>
                                     <span class="badge bg-info">3</span>
-                                </button>
-                                <button class="btn btn-sm btn-danger" data-post-id="1">
+                                </div>
+                                <div class="btn btn-sm btn-warning" data-post-id="1">
                                     <i class="bi bi-hand-thumbs-down-fill"></i>
                                     <span class="badge bg-info">1</span>
-                                </button>
+                                </div>
+                                <a class="btn btn-sm btn-danger" href="delete_post.php?post_id=1">
+                                    <i class="bi bi-trash"></i></a>
                             </div>
                         </div>
                     </div>
@@ -124,14 +126,17 @@
                         <div class="card-footer d-flex justify-content-between align-items-center">
                             <a href="single_post.php?post_id=1" class="badge bg-info">Read more</a>
                             <div>
-                                <button class="btn btn-sm btn-primary" data-post-id="1">
+                                <div class="btn btn-sm btn-primary" data-post-id="1">
                                     <i class="bi bi-hand-thumbs-up-fill"></i>
                                     <span class="badge bg-info">3</span>
-                                </button>
-                                <button class="btn btn-sm btn-danger" data-post-id="1">
+                                </div>
+                                <div class="btn btn-sm btn-warning" data-post-id="1">
                                     <i class="bi bi-hand-thumbs-down-fill"></i>
                                     <span class="badge bg-info">1</span>
-                                </button>
+                                </div>
+
+                                <a class="btn btn-sm btn-danger" href="delete_post.php?post_id=1">
+                                    <i class="bi bi-trash"></i></a>
                             </div>
                         </div>
                     </div>

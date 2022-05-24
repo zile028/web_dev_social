@@ -24,7 +24,7 @@
                             <p><span>E-mail:</span>zile028@gmail.com</p>
                         </div>
                         <div class="d-flex flex-column justify-content-between col p-0">
-                            <a href="" class="btn btn-sm btn-info"><i class="bi bi-info-circle"></i></a>
+                            <a href="user_single.php?id=1" class="btn btn-sm btn-info"><i class="bi bi-info-circle"></i></a>
                             <a href="" class="btn btn-sm btn-warning"><i class="bi bi-person-plus"></i></a>
                             <a href="" class="btn btn-sm btn-success"><i class="bi bi-chat-dots"></i></a>
                         </div>
