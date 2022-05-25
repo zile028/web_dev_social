@@ -19,12 +19,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="my_account.php">My Account</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login_register.php">Login/Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Logout</a>
-                </li>
+                <?php if ($User::isLogged()): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my_account.php"><?php echo $_SESSION["name"] ?></a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login_register.php">Login/Register</a>
+                    </li>
+                <?php endif; ?>
+
+
             </ul>
         </div>
     </div>

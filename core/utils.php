@@ -13,3 +13,8 @@ function vd($arg)
     var_dump($arg);
     echo "</pre>";
 }
+
+function redirect($page)
+{
+    header("Location: $page");
+}
