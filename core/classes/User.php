@@ -50,6 +50,31 @@ class User extends QueryBuilder
         return isset($_SESSION["id"]) && !empty($_SESSION["id"]);
     }
 
+    public function info($id)
+    {
+        $sql = "SELECT * FROM users WHERE id=:id";
+        $query = $this->db->prepare($sql);
+        $query->bindParam("id", $id);
+        $query->execute();
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function updateData(array $data)
+    {
+        $sql = "UPDATE users SET
+                 first_name = :first_name,
+                 last_name = :last_name,
+                 email = :email,
+                 date_birth=:date_birth,
+                 gender=:gender,
+                 img=:img
+                WHERE id = :id
+        ";
+        $query = $this->db->prepare($sql);
+        $query->execute($data);
+        
+    }
+
 }
 
 $User = new User($db)

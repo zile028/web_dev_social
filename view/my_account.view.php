@@ -11,38 +11,38 @@
             <div class="user-info col-md-8">
                 <div class="row">
                     <div class="col-md-6 border-bottom">
-                        <p><span>First name:</span>Dejan</p>
+                        <p><span>First name:</span><?php echo $user_info->first_name ?></p>
                     </div>
                     <div class="col-md-6 border-bottom">
-                        <p><span>Last name:</span>Zivkovic</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 border-bottom">
-                        <p><span>Date of birth:</span>16.09.1984.</p>
-                    </div>
-                    <div class="col-md-6 border-bottom">
-                        <p><span>Gender:</span>Male</p>
+                        <p><span>Last name:</span><?php echo $user_info->last_name ?></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 border-bottom">
-                        <p><span>E-mail:</span>zile028@gmail.com</p>
+                        <p><span>Date of birth:</span><?php echo $user_info->date_birth ?></p>
                     </div>
                     <div class="col-md-6 border-bottom">
-                        <p><span>Role:</span>admin</p>
+                        <p><span>Gender:</span><?php echo $user_info->gender ?></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 border-bottom">
-                        <p><span>Created at:</span>23.05.2022.</p>
+                        <p><span>E-mail:</span><?php echo $user_info->email ?></p>
                     </div>
                     <div class="col-md-6 border-bottom">
-                        <p><span>Last login:</span>23.05.2022. 23:52</p>
+                        <p><span>Role:</span><?php echo $user_info->role ?></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 border-bottom">
+                        <p><span>Created at:</span><?php echo $user_info->created_at ?></p>
+                    </div>
+                    <div class="col-md-6 border-bottom">
+                        <p><span>Last login:</span><?php echo $user_info->last_login ?></p>
                     </div>
                 </div>
                 <div class="row justify-content-around mt-3">
-                    <a href="edit_account.php" class="col-md-3 btn btn-primary">Edit</a>
+                    <a href="edit_account.php?id=<?php echo $user_info->id ?>" class="col-md-3 btn btn-primary">Edit</a>
                     <a href="delete_account.php" class="col-md-3 btn btn-danger">Delete</a>
                 </div>
             </div>
