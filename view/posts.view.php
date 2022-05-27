@@ -7,85 +7,57 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <?php for ($i = 0; $i < 3; $i++): ?>
+                <?php foreach ($all_posts as $post): ?>
                     <div class="post card bg-light text-dark mb-2">
                         <div class="card-header d-flex justify-content-between">
                             <div>
-                                <h4>Title post</h4>
+                                <h4><?php echo $post->title ?></h4>
                             </div>
                             <div class="d-flex flex-column align-items-end">
-                                <span><a class="badge bg-success" href="posts.php?user_id=1">Dejan Zivkovic</a></span>
-                                <span>24.05.2022.</span>
+                                <span><a class="badge bg-success"
+                                         href="posts.php?user_id=1"><?php echo $post->first_name . " " . $post->last_name ?></a></span>
+                                <span><?php echo $post->created_at ?></span>
                             </div>
                         </div>
                         <div class="card-body row">
-                            <div class="col-md-2">
-                                <img class="img-fluid"
-                                     src="https://images.unsplash.com/photo-1463171379579-3fdfb86d6285?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170"
-                                     alt="">
-                            </div>
+
+                            <!-- slika-->
+                            <?php if ($post->img !== null): ?>
+                                <div class="col-md-2">
+                                    <img class="img-fluid"
+                                         src="<?php echo UPLOAD_DIR . "/" . $post->img ?>"
+                                         alt="">
+                                </div>
+                            <?php endif; ?>
+
                             <div class="col">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                                    consequuntur dolorum ea ex laudantium maiores officia provident recusandae tempora
-                                    tempore!
-                                    Architecto, cupiditate dignissimos dolor dolorum facere in ipsum itaque libero
-                                    magnam
-                                    magni
-                                    minima nemo, repellat ullam? A inventore nisi quaerat.</p>
+                                <p><?php echo $post->post_text ?></p>
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between align-items-center">
-                            <a href="single_post.php?post_id=1" class="badge bg-info">Read more</a>
+                            <a href="single_post.php?post_id=<?php echo $post->id ?>" class="badge bg-info">Read
+                                more</a>
                             <div>
-                                <button class="btn btn-sm btn-primary" data-post-id="1">
+
+                                <a href="voting.php?action=like&post_id=<?php echo $post->id ?>"
+                                   class="btn btn-sm btn-primary"
+                                   data-post-id="1">
                                     <i class="bi bi-hand-thumbs-up-fill"></i>
-                                    <span class="badge bg-info">3</span>
-                                </button>
-                                <button class="btn btn-sm btn-danger" data-post-id="1">
+                                    <span class="badge bg-info"><?php echo $post->likes ?></span>
+                                </a>
+
+                                <a href="voting.php?action=dislike&post_id=<?php echo $post->id ?>"
+                                   class="btn btn-sm btn-danger"
+                                   data-post-id="1">
                                     <i class="bi bi-hand-thumbs-down-fill"></i>
-                                    <span class="badge bg-info">1</span>
-                                </button>
+                                    <span class="badge bg-info"><?php echo $post->dislike ?></span>
+                                </a>
                             </div>
 
                         </div>
                     </div>
 
-                    <div class="post card bg-light text-dark mb-2">
-                        <div class="card-header d-flex justify-content-between">
-                            <div>
-                                <h4>Title post</h4>
-                            </div>
-                            <div class="d-flex flex-column align-items-end">
-                                <span><a class="badge bg-success" href="posts.php?user_id=1">Dejan Zivkovic</a></span>
-                                <span>24.05.2022.</span>
-                            </div>
-                        </div>
-                        <div class="card-body row">
-                            <div class="col">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                                    consequuntur dolorum ea ex laudantium maiores officia provident recusandae tempora
-                                    tempore!
-                                    Architecto, cupiditate dignissimos dolor dolorum facere in ipsum itaque libero
-                                    magnam
-                                    magni
-                                    minima nemo, repellat ullam? A inventore nisi quaerat.</p>
-                            </div>
-                        </div>
-                        <div class="card-footer d-flex justify-content-between align-items-center">
-                            <a href="single_post.php?post_id=1" class="badge bg-info">Read more</a>
-                            <div>
-                                <button class="btn btn-sm btn-primary" data-post-id="1">
-                                    <i class="bi bi-hand-thumbs-up-fill"></i>
-                                    <span class="badge bg-info">3</span>
-                                </button>
-                                <button class="btn btn-sm btn-danger" data-post-id="1">
-                                    <i class="bi bi-hand-thumbs-down-fill"></i>
-                                    <span class="badge bg-info">1</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                <?php endfor; ?>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

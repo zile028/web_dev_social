@@ -11,3 +11,7 @@ require "utils.php";
 require "classes/Connection.php";
 require "classes/QueryBuilder.php";
 require "classes/User.php";
+require "classes/Posts.php";
+
+
+require "classes/Upload.php";

@@ -5,8 +5,14 @@
     <div class="container py-5">
         <div class="row m-0 justify-content-between">
             <div class="col-md-3">
-                <img class="img-fluid" src="asset/img/user.png" alt="">
+
+                <?php if (empty($user_info->img)): ?>
+                    <img class="profile-image img-fluid" src="asset/img/user.png" alt="">
+                <?php else: ?>
+                    <img class="profile-image img-fluid" src="<?php echo UPLOAD_DIR . "/" . $user_info->img ?>" alt="">
+                <?php endif; ?>
             </div>
+
 
             <div class="user-info col-md-8">
                 <div class="row">

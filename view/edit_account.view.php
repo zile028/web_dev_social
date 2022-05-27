@@ -9,6 +9,13 @@
         <img class="profile-image img-fluid" src="<?php echo UPLOAD_DIR . "/" . $user_info->img ?>" alt="">
     <?php endif; ?>
 
+    <!--dodato-->
+    <?php if (isset($have_err) && $have_err): ?>
+        <?php foreach ($upload->err as $msg): ?>
+            <p class="alert bg-danger"><?php echo $msg ?></p>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
     <form action="edit_account.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $user_info->id ?>">
         <div class="row">
