@@ -5,7 +5,6 @@ if (!$User::isLogged()) {
 }
 
 switch ($_GET["action"]) {
-
     case "dislike":
         $Posts->dislike($_GET["post_id"]);
         break;

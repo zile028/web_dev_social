@@ -6,35 +6,44 @@ if (!$User::isLogged()) {
 $title = "Add post";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $data = [
+    $post_err = [];
+
+    $post_data = [
         "user_id" => $_SESSION["id"],
-        "title" => $_POST["title"],
-        "post_text" => $_POST["post_text"],
         "visibility" => $_POST["visibility"],
         "img" => null
     ];
+
+    if (isset($_POST["title"]) && !empty($_POST["title"])) {
+        $post_data["title"] = $_POST["title"];
+    } else {
+        $post_err["title"] = "Required";
+    }
+
+    if (isset($_POST["post_text"]) && !empty($_POST["post_text"])) {
+        $post_data["post_text"] = $_POST["post_text"];
+    } else {
+        $post_err["post_text"] = "Required";
+    }
 
     $upload = new Upload($_FILES["img"], ["jpeg", "jpg", "png"], 5, Upload::MB);
 
     if ($upload->haveFaile()) {
         $have_err = $upload->haveError();
         if (!$have_err) {
-
             if (!file_exists(UPLOAD_DIR)) {
                 mkdir(UPLOAD_DIR);
             }
-
-            $data["img"] = $upload->uploadFile(UPLOAD_DIR);
-
+            $post_data["img"] = $upload->uploadFile(UPLOAD_DIR);
         }
+
     }
 
+    if (count($post_err) === 0 && !$upload::$have_error) {
+        $Posts->addPost($post_data);
+        redirect("posts.php");
+    }
 
-    $Posts->addPost($data);
-    redirect("posts.php");
-
-
-//    "img" => $_POST["img"],
 }
 
 

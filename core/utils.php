@@ -3,9 +3,6 @@
 define("GENDERS", ["Male", "Female"]);
 define("POST_VISIBILITY", ["Public", "Private", "Friend"]);
 
-//define("KB", 1024);
-//define("MB", 1048576);
-
 define("UPLOAD_DIR", "upload");
 
 
@@ -27,4 +24,16 @@ function vd($arg)
 function redirect($page)
 {
     header("Location: $page");
+}
+
+function getExcerpt($str, $maxLength = 20)
+{
+    $excerpt = explode(" ", $str);
+    $excerpt = implode(" ", array_slice($excerpt, 0, $maxLength));
+    return $excerpt;
+}
+
+function displayDateTime($arg)
+{
+    return date("d.m.Y H:i", strtotime($arg));
 }

@@ -1,4 +1,7 @@
 <?php require "core/init.php";
-$title = "Title post";
+
+$post = $Posts->singlePost($_GET["post_id"]);
+$title = $post->title;
+
 
 require "view/single_post.view.php";

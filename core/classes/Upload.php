@@ -19,6 +19,7 @@ class Upload
     private $size;
     private $temp_name;
 
+    static $have_error = false;
 
     public function __construct($file, array $valid_type, float $valid_size, $unit)
     {
@@ -45,9 +46,11 @@ class Upload
         $file_info = $this->fileInfo();
         if (!in_array($this->extension, $this->valid_type)) {
             $this->err["err_type"] = "Not valid file type, valid type is " . implode(", ", $this->valid_type);
+            self::$have_error = true;
         }
         if ($this->size > $this->valid_size * $this->unit) {
             $this->err["err_size"] = "Not valid file size, valid size is less then " . $this->valid_size . $this->unit_sign[$this->unit];
+            self::$have_error = true;
         }
         return [
             "file_info" => $file_info,
@@ -58,7 +61,7 @@ class Upload
     public function haveError()
     {
         $this->checkFile();
-        return count($this->err) > 0;
+        return self::$have_error;
     }
 
     public function haveFaile()

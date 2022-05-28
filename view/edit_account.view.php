@@ -9,7 +9,6 @@
         <img class="profile-image img-fluid" src="<?php echo UPLOAD_DIR . "/" . $user_info->img ?>" alt="">
     <?php endif; ?>
 
-    <!--dodato-->
     <?php if (isset($have_err) && $have_err): ?>
         <?php foreach ($upload->err as $msg): ?>
             <p class="alert bg-danger"><?php echo $msg ?></p>

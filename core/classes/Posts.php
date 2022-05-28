@@ -34,13 +34,18 @@ class Posts extends QueryBuilder
     public function singlePost($post_id)
     {
         $sql = "SELECT 
-                p.* , u.first_name, u.last_name
+                p.* , u.first_name, u.last_name, SUM(ld.likes) AS likes, SUM(ld.dislike) AS dislike
                 FROM posts as p
                 JOIN users as u ON u.id=p.user_id
-                WHERE p.id=:post_id
+                LEFT JOIN likes_dislike ld on p.id = ld.post_id
+                WHERE p.id=:post_id AND visibility = :visibility OR p.user_id = :user_id
                 ";
         $query = $this->db->prepare($sql);
-        $query->execute(["post_id" => $post_id]);
+        $query->execute([
+            "post_id" => $post_id,
+            "visibility" => "Public",
+            "user_id" => $_SESSION["id"]
+        ]);
         return $query->fetch(PDO::FETCH_OBJ);
 
     }
@@ -95,8 +100,21 @@ class Posts extends QueryBuilder
         $query->execute(["post_id" => $post_id, "dislike" => $dislike, "likes" => $likes, "user_id" => $_SESSION["id"]]);
 
     }
+
+    public function userPosts($id)
+    {
+        $sql = "SELECT 
+                p.* , u.first_name, u.last_name, SUM(ld.likes) AS likes, SUM(ld.dislike) AS dislike
+                FROM posts as p
+                JOIN users as u ON u.id=p.user_id
+                LEFT JOIN likes_dislike ld ON p.id = ld.post_id
+                WHERE p.user_id = :user_id
+                GROUP BY p.id";
+
+        $query = $this->db->prepare($sql);
+        $query->execute(["user_id" => $id]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
 }
 
 $Posts = new Posts($db);
-
-?>
